@@ -1,7 +1,60 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "wisit.backend": {
+      "root": "apps/wisit.backend",
+      "sourceRoot": "apps/wisit.backend/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/wisit.backend",
+            "main": "apps/wisit.backend/src/main.ts",
+            "tsConfig": "apps/wisit.backend/tsconfig.app.json",
+            "assets": ["apps/wisit.backend/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/wisit.backend/src/environments/environment.ts",
+                  "with": "apps/wisit.backend/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "wisit.backend:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/wisit.backend/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/wisit.backend"],
+          "options": {
+            "jestConfig": "apps/wisit.backend/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/nest"
+  },
+  "defaultProject": "wisit.backend"
 }
