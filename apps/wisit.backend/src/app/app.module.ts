@@ -4,9 +4,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserController } from './main/user/user.controller';
 import { UserService } from './main/user/user.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [],
+  imports: [
+    TypeOrmModule
+  ],
   controllers: [
     AppController,
     UserController,

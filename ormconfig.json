@@ -1,0 +1,24 @@
+{
+   "type": "postgres",
+   "host": "localhost",
+   "port": 5432,
+   "username": "postgres",
+   "password": "admin",
+   "database": "wisit",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "./apps/wisit.backend/src/app/database/entity/**/*.ts"
+   ],
+   "migrations": [
+      "./apps/wisit.backend/src/app/database/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "./apps/wisit.backend/src/app/database/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "./apps/wisit.backend/src/app/database/entity",
+      "migrationsDir": "./apps/wisit.backend/src/app/database/migration",
+      "subscribersDir": "./apps/wisit.backend/src/app/database/subscriber"
+   }
+}
