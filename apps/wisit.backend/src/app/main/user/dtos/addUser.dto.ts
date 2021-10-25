@@ -1,18 +1,21 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Gender } from "../../../database/entity/User.entity";
 
-
-export class UserDto {
-    @ApiProperty()
-    userId: number;
-
-    @ApiProperty()
+export class AddUserDto {
+    @ApiProperty({
+        required: true
+    })
     username: string;
     
-    @ApiProperty()
+    @ApiProperty({
+        description: 'User email address',
+        required: true
+      })
     email: string;
     
-    @ApiProperty()
+    @ApiProperty({
+        required: true
+    })
     password: string;
 
     @ApiProperty({

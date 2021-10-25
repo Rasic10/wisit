@@ -1,10 +1,14 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { Gender } from "../../main/user/dtos/user.dto";
+
+export enum Gender {
+    Male = "Male",
+    Female = "Female"
+}
 
 @Entity()
 export class User {
 
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
@@ -14,12 +18,18 @@ export class User {
     email: string;
 
     @Column()
-    password: number;
+    password: string;
 
     @Column({
-        type: "enum",
+        type: 'enum',
         enum: Gender,
-        default: Gender.Male
+        default: null
     })
-    gender: Gender;
+    gender?: Gender;
+}
+
+export enum UserRole {
+    Admin = "Admin",
+    Moderator = "Moderator",
+    User = "User"
 }

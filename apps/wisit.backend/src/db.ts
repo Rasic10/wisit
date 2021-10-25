@@ -1,4 +1,4 @@
-import { Gender, UserRole } from "./app/main/user/dtos/user.dto";
+import { Gender, UserRole } from "./app/database/entity/User.entity";
 
 export const users = [
     {
