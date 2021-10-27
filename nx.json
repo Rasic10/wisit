@@ -29,6 +29,13 @@
   "projects": {
     "wisit.backend": {
       "tags": []
+    },
+    "wisit.mobile": {
+      "tags": []
+    },
+    "wisit.mobile-e2e": {
+      "tags": [],
+      "implicitDependencies": ["wisit.mobile"]
     }
   }
 }
